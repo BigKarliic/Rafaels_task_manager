@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Task Manager</title>
+</head>
+<body>
+	<button id="logoutBtn">Logout</button>
+    <button id="prevBtn">&lt;</button>
+    <div id="calendar"></div>
+	<button id="nextBtn">&gt;</button>
+</div>
+    <script defer src="script.js"></script>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            logout();
+        });
+
+        function logout() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'logout.php', true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    window.location.href = 'login.html';
+                }
+            };
+
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
+
